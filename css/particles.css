@@ -1,0 +1,25 @@
+/* ===================================
+   Three.js Particle Canvas Styles
+   =================================== */
+
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-background, -1);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Ensure canvas doesn't interfere with page scrolling */
+#particle-canvas {
+  touch-action: none;
+}
+
+/* Reduce opacity when scrolling for better readability */
+body.scrolling #particle-canvas {
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}

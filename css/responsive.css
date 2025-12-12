@@ -1,0 +1,390 @@
+/* ===================================
+   Responsive Design & Media Queries
+   =================================== */
+
+/* Tablet and below (768px) */
+@media (max-width: 768px) {
+  /* Typography adjustments */
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* Navigation */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    flex-direction: column;
+    background: rgba(19, 26, 53, 0.98);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-xl) var(--spacing-md);
+    gap: var(--spacing-sm);
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+
+  /* Hero Section */
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* About Section */
+  .about-stats {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  /* Skills Section */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Projects Section */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact Section */
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  /* Timeline - horizontal scroll on mobile */
+  .timeline-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .timeline-container svg {
+    min-width: 600px;
+  }
+
+  /* Footer */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Hide custom cursor on mobile */
+  .custom-cursor,
+  #sparkle-canvas {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto !important;
+  }
+
+  /* Reduce particle canvas opacity on mobile */
+  #particle-canvas {
+    opacity: 0.3;
+  }
+
+  /* Section padding */
+  section {
+    padding: var(--spacing-lg) 0;
+    min-height: auto;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+/* Small phones (480px and below) */
+@media (max-width: 480px) {
+  /* Further reduce font sizes */
+  h1 { font-size: 2rem; }
+  .hero-title { font-size: 2rem; }
+  .section-title { font-size: 1.75rem; }
+
+  /* Adjust spacing */
+  section {
+    padding: var(--spacing-md) 0;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Button adjustments */
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  /* Stats cards */
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  /* Project cards */
+  .project-image {
+    height: 150px;
+  }
+
+  /* Contact */
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-item i {
+    margin-top: 0;
+  }
+}
+
+/* Tablet landscape (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container {
+    max-width: 90%;
+  }
+}
+
+/* Large desktops (1441px and above) */
+@media (min-width: 1441px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .hero-title {
+    font-size: 5rem;
+  }
+
+  .section-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Disable particle canvas */
+  #particle-canvas {
+    display: none !important;
+  }
+
+  /* Disable sparkle cursor */
+  #sparkle-canvas,
+  .custom-cursor {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto !important;
+  }
+
+  /* Disable glitch effect */
+  .glitch::before,
+  .glitch::after {
+    display: none;
+  }
+
+  /* Disable floating animation */
+  .profile-pic {
+    animation: none;
+  }
+
+  /* Disable scroll indicator animation */
+  .scroll-indicator {
+    animation: none;
+  }
+
+  .scroll-indicator span::before {
+    animation: none;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable cursor effects */
+  .custom-cursor,
+  #sparkle-canvas {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto !important;
+  }
+
+  /* Increase touch targets */
+  .btn,
+  .nav-links a,
+  .project-link,
+  .footer-social a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove hover effects, replace with active states */
+  .project-card:hover {
+    transform: none;
+  }
+
+  .project-card:active {
+    transform: scale(0.98);
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  .btn:active {
+    transform: scale(0.95);
+  }
+
+  /* Disable hover-only overlays */
+  .project-overlay {
+    opacity: 0;
+  }
+
+  /* Show overlay on focus/active */
+  .project-card:focus-within .project-overlay,
+  .project-card:active .project-overlay {
+    opacity: 1;
+  }
+}
+
+/* Print styles */
+@media print {
+  /* Hide non-essential elements */
+  #particle-canvas,
+  #sparkle-canvas,
+  .custom-cursor,
+  .nav,
+  .scroll-indicator,
+  .hero-cta,
+  .footer-social {
+    display: none !important;
+  }
+
+  /* Optimize for print */
+  body {
+    background: white;
+    color: black;
+  }
+
+  section {
+    page-break-inside: avoid;
+    min-height: auto;
+  }
+
+  /* Remove shadows and effects */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Ensure links show URLs */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --bg-primary: #000000;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --accent-primary: #00ffff;
+    --accent-secondary: #ff00ff;
+  }
+
+  /* Increase border visibility */
+  .nav,
+  .skill-category,
+  .project-card,
+  .stat-card,
+  .contact-item {
+    border-width: 2px;
+  }
+}
+
+/* Dark mode support (if user prefers dark, which we already use) */
+@media (prefers-color-scheme: dark) {
+  /* Already optimized for dark mode */
+}
+
+/* Light mode override (if needed in future) */
+@media (prefers-color-scheme: light) {
+  /* Keep dark mode as it's the design choice */
+  /* Can be implemented later if needed */
+}

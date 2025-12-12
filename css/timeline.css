@@ -1,0 +1,171 @@
+/* ===================================
+   Git Branch Timeline Visualization
+   =================================== */
+
+.timeline-container {
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.timeline-container svg {
+  min-width: 800px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Commit nodes (circles) */
+.timeline-commit {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.timeline-commit circle {
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
+}
+
+.timeline-commit:hover circle {
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.8));
+}
+
+/* Branch lines */
+.timeline-branch {
+  stroke-dasharray: 5, 5;
+  animation: dash 20s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Current role pulse animation */
+.timeline-current circle {
+  animation: pulse-commit 2s ease-in-out infinite;
+}
+
+@keyframes pulse-commit {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(123, 44, 191, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(123, 44, 191, 1));
+  }
+}
+
+/* Timeline labels */
+.timeline-label {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 14px;
+  fill: var(--text-primary);
+  transition: fill 0.3s ease;
+}
+
+.timeline-year {
+  font-size: 12px;
+  fill: var(--text-secondary);
+  font-weight: 600;
+}
+
+.timeline-title {
+  font-size: 16px;
+  fill: var(--accent-primary);
+  font-weight: 700;
+}
+
+.timeline-description {
+  font-size: 13px;
+  fill: var(--text-secondary);
+}
+
+/* Hover effects for labels */
+.timeline-commit:hover .timeline-label {
+  fill: var(--accent-primary);
+}
+
+/* Tooltip */
+.timeline-tooltip {
+  position: absolute;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  max-width: 300px;
+  box-shadow: var(--shadow-glow);
+}
+
+.timeline-tooltip.visible {
+  opacity: 1;
+}
+
+.timeline-tooltip h4 {
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-tooltip p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Merge/Branch indicators */
+.timeline-merge-point {
+  fill: var(--success);
+  filter: drop-shadow(0 0 10px rgba(76, 175, 80, 0.5));
+}
+
+.timeline-branch-point {
+  fill: var(--warning);
+  filter: drop-shadow(0 0 10px rgba(255, 152, 0, 0.5));
+}
+
+/* Path animations */
+.timeline-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.timeline-path.animated {
+  animation: draw-path 2s ease-out forwards;
+}
+
+@keyframes draw-path {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Loading state */
+.timeline-container.loading {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-container.loading::before {
+  content: '';
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(0, 212, 255, 0.1);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
