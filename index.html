@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .center-top-container {
+            display: flex;
+            justify-content: center;
+            /* Centers horizontally */
+            align-items: center;
+            /* Centers vertically */
+            height: 10vh;
+            /* Example: Centers in the full viewport height */
+            width: 100%;
+        }
+        .center-mid-container {
+            display: flex;
+            justify-content: center;
+            /* Centers horizontally */
+            align-items: center;
+            /* Centers vertically */
+            height: 90vh;
+            /* Example: Centers in the full viewport height */
+            width: 100%;
+        }
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            /* Linear gradient from left (red) to right (yellow) */
+            background: linear-gradient(to right, red, orange, yellow);
+            /* Fallback color if gradients aren't supported */
+            background-color: red; 
+        }
+        .stroked-text {
+            font-size: 48px;
+            color: brown; /* Text color */
+            -webkit-text-stroke: 2px black; /* Stroke width and color for Webkit browsers */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center-top-container">
+        <h1>Aditya Sarwade</h1>
+    </div>
+    <div class="center-mid-container">
+        <h1 class="stroked-text">Under development &#x1F6A7; &#128736;</h1>
+    </div>
+</body>
+
+</html>
