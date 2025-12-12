@@ -1,49 +1,508 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-    <style>
-        .center-top-container {
-            display: flex;
-            justify-content: center;
-            /* Centers horizontally */
-            align-items: center;
-            /* Centers vertically */
-            height: 10vh;
-            /* Example: Centers in the full viewport height */
-            width: 100%;
-        }
-        .center-mid-container {
-            display: flex;
-            justify-content: center;
-            /* Centers horizontally */
-            align-items: center;
-            /* Centers vertically */
-            height: 90vh;
-            /* Example: Centers in the full viewport height */
-            width: 100%;
-        }
-        body {
-            font-family: Helvetica, Arial, sans-serif;
-            /* Linear gradient from left (red) to right (yellow) */
-            background: linear-gradient(to right, red, orange, yellow);
-            /* Fallback color if gradients aren't supported */
-            background-color: red; 
-        }
-        .stroked-text {
-            font-size: 48px;
-            color: brown; /* Text color */
-            -webkit-text-stroke: 2px black; /* Stroke width and color for Webkit browsers */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Aditya Sarwade, Associate ML Engineer specializing in machine learning and artificial intelligence at Iron Mountain.">
+  <meta name="theme-color" content="#0a0e27">
+  <title>Aditya Sarwade - ML Engineer Portfolio</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/particles.css">
+  <link rel="stylesheet" href="css/cursor.css">
+  <link rel="stylesheet" href="css/timeline.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
-
 <body>
-    <div class="center-top-container">
-        <h1>Aditya Sarwade</h1>
-    </div>
-    <div class="center-mid-container">
-        <h1 class="stroked-text">Under development &#x1F6A7; &#128736;</h1>
-    </div>
-</body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#hero" class="skip-link">Skip to main content</a>
 
+  <!-- Three.js Particle Background -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <canvas id="sparkle-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-brand">AS</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <img src="assets/aditya-profile.jpg" alt="Aditya Sarwade" class="profile-pic">
+      <h1 class="hero-title">
+        <span class="glitch" data-text="Aditya Sarwade">Aditya Sarwade</span>
+      </h1>
+      <p class="hero-subtitle">Associate ML Engineer @ Iron Mountain</p>
+      <p class="hero-tagline">Transforming data into intelligent solutions</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+      <div class="scroll-indicator">
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Experience Section -->
+  <section id="about" class="about" aria-labelledby="about-heading">
+    <div class="container">
+      <h2 id="about-heading" class="section-title">About & Experience</h2>
+
+      <!-- Git Timeline Visualization -->
+      <div id="git-timeline" class="timeline-container"></div>
+
+      <!-- About Content -->
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Who I Am</h3>
+          <p>I'm a passionate Machine Learning Engineer with a focus on developing intelligent systems that solve real-world problems. Currently working at Iron Mountain, I specialize in applying cutting-edge ML techniques to enterprise-scale challenges.</p>
+          <p>My journey in tech started with a curiosity about how computers learn and has evolved into a career dedicated to pushing the boundaries of artificial intelligence. I thrive on transforming complex data into actionable insights and building models that make a tangible impact.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-number">2+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">5+</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Technologies Section -->
+  <section id="skills" class="skills" aria-labelledby="skills-heading">
+    <div class="container">
+      <h2 id="skills-heading" class="section-title">Skills & Technologies</h2>
+
+      <div class="skills-grid">
+        <!-- Machine Learning -->
+        <div class="skill-category">
+          <div class="category-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Machine Learning</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fab fa-python"></i>
+                <span>Python</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-project-diagram"></i>
+                <span>TensorFlow</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="80"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-fire"></i>
+                <span>PyTorch</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="75"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-chart-line"></i>
+                <span>Scikit-learn</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="85"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Science -->
+        <div class="skill-category">
+          <div class="category-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Data Science</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-table"></i>
+                <span>Pandas</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-square-root-alt"></i>
+                <span>NumPy</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="80"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-chart-bar"></i>
+                <span>Data Visualization</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="75"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-database"></i>
+                <span>SQL</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="70"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Platforms -->
+        <div class="skill-category">
+          <div class="category-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Tools & Platforms</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fab fa-git-alt"></i>
+                <span>Git</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fab fa-docker"></i>
+                <span>Docker</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="70"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fab fa-aws"></i>
+                <span>AWS</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="65"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fab fa-linux"></i>
+                <span>Linux</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="75"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Showcase Section -->
+  <section id="projects" class="projects" aria-labelledby="projects-heading">
+    <div class="container">
+      <h2 id="projects-heading" class="section-title">Projects</h2>
+
+      <div class="projects-grid">
+        <!-- Project Card 1 -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" aria-label="View demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                <a href="#" class="project-link" aria-label="View code"><i class="fab fa-github"></i> Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>ML Classification System</h3>
+            <p>Developed a machine learning classification system using advanced ensemble methods to achieve high accuracy on complex datasets. Implemented feature engineering and model optimization techniques.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">ML</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 2 -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">
+              <i class="fas fa-language"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" aria-label="View demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                <a href="#" class="project-link" aria-label="View code"><i class="fab fa-github"></i> Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>NLP Text Analysis Tool</h3>
+            <p>Built a natural language processing tool for sentiment analysis and text classification. Utilized transformer models and fine-tuning techniques for domain-specific applications.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Transformers</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 3 -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" aria-label="View demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                <a href="#" class="project-link" aria-label="View code"><i class="fab fa-github"></i> Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Predictive Analytics Dashboard</h3>
+            <p>Created an interactive dashboard for real-time predictive analytics, featuring automated data pipelines and visualization of key performance metrics.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Visualization</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 4 -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" aria-label="View demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                <a href="#" class="project-link" aria-label="View code"><i class="fab fa-github"></i> Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Deep Learning Image Classifier</h3>
+            <p>Implemented a convolutional neural network for image classification with transfer learning. Achieved state-of-the-art performance on custom datasets.</p>
+            <div class="project-tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">CNN</span>
+              <span class="tag">Computer Vision</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 5 -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">
+              <i class="fas fa-server"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" aria-label="View demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                <a href="#" class="project-link" aria-label="View code"><i class="fab fa-github"></i> Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>ML Model Deployment Pipeline</h3>
+            <p>Designed and implemented an end-to-end ML deployment pipeline with containerization, CI/CD integration, and monitoring capabilities.</p>
+            <div class="project-tags">
+              <span class="tag">Docker</span>
+              <span class="tag">AWS</span>
+              <span class="tag">MLOps</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 6 -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">
+              <i class="fas fa-code-branch"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" aria-label="View demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+                <a href="#" class="project-link" aria-label="View code"><i class="fab fa-github"></i> Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Data Processing Framework</h3>
+            <p>Built a scalable data processing framework for handling large-scale datasets with efficient preprocessing and feature extraction capabilities.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Data Engineering</span>
+              <span class="tag">ETL</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <h2 id="contact-heading" class="section-title">Get In Touch</h2>
+
+      <div class="contact-content">
+        <div class="contact-info">
+          <p class="contact-intro">I'm always open to discussing new opportunities, collaborations, or just connecting with fellow tech enthusiasts. Feel free to reach out!</p>
+
+          <div class="contact-methods">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:adityasarwade7@example.com">adityasarwade7@example.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-linkedin"></i>
+              <div>
+                <h4>LinkedIn</h4>
+                <a href="https://linkedin.com/in/aditya-sarwade" target="_blank" rel="noopener noreferrer">linkedin.com/in/aditya-sarwade</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-github"></i>
+              <div>
+                <h4>GitHub</h4>
+                <a href="https://github.com/adityasarwade" target="_blank" rel="noopener noreferrer">github.com/adityasarwade</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Location</h4>
+                <p>Available for remote opportunities</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <form id="contact-form" class="contact-form" action="https://formsubmit.co/adityasarwade7@example.com" method="POST">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
+
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 Aditya Sarwade. Built with Three.js & vanilla JavaScript.</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com/in/aditya-sarwade" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/adityasarwade" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:aditya.sarwade@example.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Load Three.js and GSAP from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <!-- Custom Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/scroll-animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>
