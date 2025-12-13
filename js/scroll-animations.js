@@ -3,10 +3,44 @@
  */
 
 function initScrollAnimations() {
+  // First, ensure all elements are visible by default
+  const ensureVisible = () => {
+    const selectors = [
+      'section',
+      '.section-title',
+      '.skill-category',
+      '.project-card',
+      '.stat-card',
+      '.contact-item',
+      '.about-content',
+      '.projects-grid',
+      '.skills-grid',
+      '.timeline-commit',
+      '.timeline-path',
+      '.timeline-branch',
+      '.about-text'
+    ];
+
+    console.log('Ensuring all elements are visible...');
+    selectors.forEach(selector => {
+      const elements = document.querySelectorAll(selector);
+      console.log(`Found ${elements.length} elements for ${selector}`);
+      elements.forEach(element => {
+        element.style.setProperty('opacity', '1', 'important');
+        element.style.setProperty('transform', 'scale(1)', 'important');
+        element.style.setProperty('visibility', 'visible', 'important');
+      });
+    });
+  };
+
   if (!window.gsap || !window.ScrollTrigger) {
-    console.warn('GSAP or ScrollTrigger not loaded');
+    console.warn('GSAP or ScrollTrigger not loaded - sections will display without animations');
+    ensureVisible();
     return;
   }
+
+  // Ensure elements are visible first, then GSAP will animate them
+  ensureVisible();
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -135,31 +169,22 @@ function initScrollAnimations() {
   });
 
   // Animate contact items
-  gsap.utils.toArray('.contact-item').forEach((item, index) => {
-    gsap.from(item, {
-      opacity: 0,
-      x: -50,
-      duration: 0.6,
-      delay: index * 0.1,
-      scrollTrigger: {
-        trigger: item,
-        start: 'top 85%',
-        toggleActions: 'play none none reverse'
-      }
+  const contactItems = gsap.utils.toArray('.contact-item');
+  if (contactItems.length > 0) {
+    contactItems.forEach((item, index) => {
+      gsap.from(item, {
+        opacity: 0,
+        x: -50,
+        duration: 0.6,
+        delay: index * 0.1,
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        }
+      });
     });
-  });
-
-  // Animate contact form
-  gsap.from('.contact-form-wrapper', {
-    opacity: 0,
-    x: 50,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '.contact-form-wrapper',
-      start: 'top 85%',
-      toggleActions: 'play none none reverse'
-    }
-  });
+  }
 
   // Parallax effect for hero section
   gsap.to('.hero-content', {

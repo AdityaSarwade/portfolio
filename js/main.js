@@ -67,32 +67,46 @@ class Portfolio {
       // Initialize particle field
       if (this.settings.particles && window.THREE) {
         console.log('Initializing particles...');
-        this.components.particles = new ParticleField();
-        this.components.particles.init();
+        try {
+          this.components.particles = new ParticleField();
+          this.components.particles.init();
+        } catch (e) {
+          console.error('Error initializing particles:', e);
+        }
       }
 
       // Initialize sparkling cursor
       if (this.settings.cursor) {
         console.log('Initializing cursor...');
-        this.components.cursor = new SparklingCursor();
-        this.components.cursor.init();
+        try {
+          this.components.cursor = new SparklingCursor();
+          this.components.cursor.init();
+        } catch (e) {
+          console.error('Error initializing cursor:', e);
+        }
       }
 
       // Initialize git timeline
       console.log('Initializing timeline...');
-      this.components.timeline = new GitTimeline('git-timeline');
-      this.components.timeline.init();
-      // Store reference for scroll animation trigger
-      this.timeline = this.components.timeline;
-
-      // Initialize scroll animations
-      if (this.settings.animations && window.gsap) {
-        console.log('Initializing scroll animations...');
-        // Wait a bit for everything to be rendered
-        setTimeout(() => {
-          initScrollAnimations();
-        }, 100);
+      try {
+        this.components.timeline = new GitTimeline('git-timeline');
+        this.components.timeline.init();
+        // Store reference for scroll animation trigger
+        this.timeline = this.components.timeline;
+      } catch (e) {
+        console.error('Error initializing timeline:', e);
       }
+
+      // Initialize scroll animations (or ensure sections are visible)
+      console.log('Initializing scroll animations...');
+      // Wait a bit for everything to be rendered
+      setTimeout(() => {
+        try {
+          initScrollAnimations();
+        } catch (e) {
+          console.error('Error initializing scroll animations:', e);
+        }
+      }, 100);
 
     } catch (error) {
       console.error('Error initializing components:', error);
@@ -205,6 +219,8 @@ class Portfolio {
         // - Netlify Forms: https://www.netlify.com/products/forms/
         // - Your own backend API
       });
+    } else {
+      console.log('Contact form not found - skipping form setup');
     }
   }
 
@@ -309,6 +325,44 @@ class Portfolio {
 // Initialize portfolio when DOM is ready
 const app = new Portfolio();
 app.init();
+
+// Backup: Ensure all content is visible after page loads
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    console.log('Running backup visibility check...');
+    const selectors = [
+      'section',
+      '.section-title',
+      '.skill-category',
+      '.project-card',
+      '.stat-card',
+      '.contact-item',
+      '.about-content',
+      '.projects-grid',
+      '.skills-grid',
+      '.timeline-commit',
+      '.timeline-path',
+      '.timeline-branch',
+      '.about-text',
+      '.about-stats'
+    ];
+
+    selectors.forEach(selector => {
+      const elements = document.querySelectorAll(selector);
+      if (elements.length > 0) {
+        elements.forEach(element => {
+          const computedStyle = window.getComputedStyle(element);
+          if (computedStyle.opacity === '0' || computedStyle.visibility === 'hidden') {
+            console.log(`Fixing visibility for ${selector}`);
+            element.style.setProperty('opacity', '1', 'important');
+            element.style.setProperty('visibility', 'visible', 'important');
+            element.style.setProperty('transform', 'scale(1)', 'important');
+          }
+        });
+      }
+    });
+  }, 500);
+});
 
 // Add animation for notification
 const style = document.createElement('style');
