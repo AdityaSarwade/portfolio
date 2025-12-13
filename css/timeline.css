@@ -23,6 +23,8 @@
 .timeline-commit {
   cursor: pointer;
   transition: all 0.3s ease;
+  opacity: 1 !important; /* Ensure visible by default */
+  transform: scale(1) !important; /* Ensure not scaled down */
 }
 
 .timeline-commit circle {
@@ -37,6 +39,7 @@
 .timeline-branch {
   stroke-dasharray: 5, 5;
   animation: dash 20s linear infinite;
+  opacity: 1 !important; /* Ensure visible by default */
 }
 
 @keyframes dash {
@@ -133,7 +136,8 @@
 /* Path animations */
 .timeline-path {
   stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
+  stroke-dashoffset: 0; /* Changed from 1000 to 0 to make visible immediately */
+  opacity: 1 !important; /* Ensure visible by default */
 }
 
 .timeline-path.animated {
