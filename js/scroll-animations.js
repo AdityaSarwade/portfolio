@@ -18,7 +18,9 @@ function initScrollAnimations() {
       '.timeline-commit',
       '.timeline-path',
       '.timeline-branch',
-      '.about-text'
+      '.about-text',
+      '.experience-card',
+      '.experience-list'
     ];
 
     console.log('Ensuring all elements are visible...');
@@ -127,6 +129,23 @@ function initScrollAnimations() {
     });
   }
 
+  // Animate experience cards
+  const expCards = gsap.utils.toArray('.experience-card');
+  if (expCards.length > 0) {
+    gsap.from(expCards, {
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.experience-list',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+  }
+
   // Animate stat cards
   gsap.utils.toArray('.stat-card').forEach((card, index) => {
     gsap.from(card, {
@@ -145,8 +164,10 @@ function initScrollAnimations() {
     // Animate numbers counting up
     const statNumber = card.querySelector('.stat-number');
     if (statNumber) {
-      const finalValue = statNumber.textContent;
-      const numericValue = parseInt(finalValue);
+      const finalValue = statNumber.textContent.trim();
+      const isPercent = finalValue.includes('%');
+      const isFloat = finalValue.includes('.');
+      const numericValue = isFloat ? parseFloat(finalValue) : parseInt(finalValue);
 
       if (!isNaN(numericValue)) {
         const obj = { value: 0 };
@@ -156,7 +177,16 @@ function initScrollAnimations() {
           duration: 2,
           ease: 'power2.out',
           onUpdate: () => {
-            statNumber.textContent = Math.round(obj.value) + '+';
+            if (isPercent) {
+              statNumber.textContent = Math.round(obj.value) + '%';
+            } else if (isFloat) {
+              statNumber.textContent = (Math.round(obj.value * 2) / 2).toFixed(1) + '+';
+            } else {
+              statNumber.textContent = Math.round(obj.value) + '+';
+            }
+          },
+          onComplete: () => {
+            statNumber.textContent = finalValue;
           },
           scrollTrigger: {
             trigger: card,

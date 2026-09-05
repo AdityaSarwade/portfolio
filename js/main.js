@@ -28,6 +28,9 @@ class Portfolio {
 
     console.log('Initializing portfolio...');
 
+    // Dynamic calculations
+    this.updateDynamicValues();
+
     // Determine which features to enable based on device capabilities
     this.determineSettings();
 
@@ -39,12 +42,80 @@ class Portfolio {
     this.setupContactForm();
     this.setupScrollEffects();
     this.setupResizeHandler();
+    this.setupTypingAnimation();
 
     this.isInitialized = true;
     console.log('Portfolio initialized successfully');
 
     // Store reference globally for timeline animation trigger
     window.portfolio = this;
+  }
+
+  updateDynamicValues() {
+    // 1. Dynamic Experience Calculation (Jan 2024 start)
+    // Rule: Jan 2026 onwards = 2+ years; Jun 2026 onwards = 2.5+ years
+    const now = new Date();
+    const yearsDiff = now.getFullYear() - 2024;
+    const month = now.getMonth(); // 0 = Jan, 5 = June
+    const halfYears = yearsDiff * 2 + (month >= 5 ? 1 : 0);
+    const expYears = Math.max(1, halfYears * 0.5);
+    const expText = expYears % 1 === 0 ? `${expYears}+` : `${expYears.toFixed(1)}+`;
+
+    const expElement = document.getElementById('experience-years');
+    if (expElement) {
+      expElement.textContent = expText;
+    }
+
+    // 2. Dynamic Footer Year
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+      yearElement.textContent = now.getFullYear();
+    }
+  }
+
+  setupTypingAnimation() {
+    const el = document.getElementById('typing-text');
+    if (!el) return;
+
+    const phrases = [
+      'Generative AI & LLMs',
+      'Autonomous AI Agents',
+      'GraphRAG & Vector Search',
+      'Scalable ML Systems',
+      'Quantization & ONNX'
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 75;
+
+    const type = () => {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        el.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 35;
+      } else {
+        el.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 75;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        typingSpeed = 1800; // Pause when full phrase is typed
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typingSpeed = 400; // Pause before typing next phrase
+      }
+
+      setTimeout(type, typingSpeed);
+    };
+
+    setTimeout(type, 600);
   }
 
   determineSettings() {
@@ -99,7 +170,6 @@ class Portfolio {
 
       // Initialize scroll animations (or ensure sections are visible)
       console.log('Initializing scroll animations...');
-      // Wait a bit for everything to be rendered
       setTimeout(() => {
         try {
           initScrollAnimations();
@@ -175,9 +245,7 @@ class Portfolio {
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-
-      if (window.pageYOffset >= sectionTop - 100) {
+      if (window.pageYOffset >= sectionTop - 150) {
         currentSection = section.getAttribute('id');
       }
     });
@@ -206,21 +274,9 @@ class Portfolio {
         };
 
         console.log('Form submitted:', data);
-
-        // Show success message
         this.showNotification('Message sent successfully! (This is a demo)', 'success');
-
-        // Reset form
         form.reset();
-
-        // In production, you would send this to a backend or service like:
-        // - FormSpree: https://formspree.io/
-        // - EmailJS: https://www.emailjs.com/
-        // - Netlify Forms: https://www.netlify.com/products/forms/
-        // - Your own backend API
       });
-    } else {
-      console.log('Contact form not found - skipping form setup');
     }
   }
 
@@ -310,7 +366,6 @@ class Portfolio {
   }
 
   destroy() {
-    // Cleanup all components
     Object.values(this.components).forEach(component => {
       if (component && typeof component.destroy === 'function') {
         component.destroy();
@@ -344,7 +399,9 @@ window.addEventListener('load', () => {
       '.timeline-path',
       '.timeline-branch',
       '.about-text',
-      '.about-stats'
+      '.about-stats',
+      '.experience-card',
+      '.experience-list'
     ];
 
     selectors.forEach(selector => {
@@ -353,7 +410,6 @@ window.addEventListener('load', () => {
         elements.forEach(element => {
           const computedStyle = window.getComputedStyle(element);
           if (computedStyle.opacity === '0' || computedStyle.visibility === 'hidden') {
-            console.log(`Fixing visibility for ${selector}`);
             element.style.setProperty('opacity', '1', 'important');
             element.style.setProperty('visibility', 'visible', 'important');
             element.style.setProperty('transform', 'scale(1)', 'important');
