@@ -995,6 +995,8 @@ section {
   border: 1px solid rgba(0, 212, 255, 0.1);
   transition: all var(--transition-fast);
   opacity: 1; /* Ensure visible by default */
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .contact-item:hover {
@@ -1007,17 +1009,32 @@ section {
   font-size: 1.5rem;
   color: var(--accent-primary);
   margin-top: 0.25rem;
+  transition: transform var(--transition-fast);
+}
+
+.contact-item:hover i {
+  transform: scale(1.1);
 }
 
 .contact-item h4 {
   color: var(--text-primary);
   margin-bottom: 0.25rem;
+  transition: color var(--transition-fast);
 }
 
-.contact-item a,
+.contact-item:hover h4 {
+  color: var(--accent-primary);
+}
+
 .contact-item p {
   color: var(--text-secondary);
   font-size: 0.95rem;
+  margin: 0;
+  transition: color var(--transition-fast);
+}
+
+.contact-item:hover p {
+  color: var(--text-primary);
 }
 
 /* ===================================
