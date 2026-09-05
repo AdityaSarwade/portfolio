@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Aditya Sarwade, Associate ML Engineer specializing in machine learning and artificial intelligence at Iron Mountain.">
+  <meta name="description"
+    content="Portfolio of Aditya Sarwade, Associate AI Engineer at Iron Mountain. Specializing in Generative AI, Autonomous AI Agents, RAG pipelines, LLM fine-tuning, and scalable machine learning systems.">
+  <meta name="keywords"
+    content="Aditya Sarwade, AI Engineer, Associate AI Engineer, Machine Learning, Generative AI, LLMs, AI Agents, AutoGen, LangChain, RAG, GraphRAG, PyTorch, Rust, Bangalore">
+  <meta name="author" content="Aditya Sarwade">
   <meta name="theme-color" content="#0a0e27">
-  <title>Aditya Sarwade - ML Engineer Portfolio</title>
+  <title>Aditya Sarwade | AI Engineer &amp; ML Systems</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aditya Sarwade | AI Engineer &amp; ML Systems">
+  <meta property="og:description"
+    content="Associate AI Engineer at Iron Mountain specializing in Generative AI, Autonomous Agents, RAG pipelines, and high-performance ML systems.">
+  <meta property="og:image" content="assets/aditya-profile.jpg">
+  <meta property="og:url" content="https://adityasarwade.github.io/portfolio/">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aditya Sarwade | AI Engineer &amp; ML Systems">
+  <meta name="twitter:description"
+    content="Associate AI Engineer at Iron Mountain specializing in Generative AI, Autonomous Agents, RAG pipelines, and high-performance ML systems.">
+  <meta name="twitter:image" content="assets/aditya-profile.jpg">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -17,6 +46,7 @@
   <link rel="stylesheet" href="css/timeline.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
   <!-- Skip to main content for accessibility -->
   <a href="#hero" class="skip-link">Skip to main content</a>
@@ -34,9 +64,13 @@
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="https://docs.google.com/document/d/1Jm4x6WX_X5qPLwRYwwOUTwQjcqD24DULeOhncFv2oqU/edit?usp=sharing"
+          target="_blank" rel="noopener noreferrer" class="nav-resume-link"><i class="fas fa-file-alt"></i> Resume</a>
+      </li>
     </ul>
     <button class="nav-toggle" aria-label="Toggle navigation">
       <span></span>
@@ -52,10 +86,22 @@
       <h1 class="hero-title">
         <span class="glitch" data-text="Aditya Sarwade">Aditya Sarwade</span>
       </h1>
-      <p class="hero-subtitle">Associate ML Engineer @ Iron Mountain</p>
+      <p class="hero-subtitle">Associate AI Engineer @ Iron Mountain</p>
+
+      <!-- Typing Animation Effect -->
+      <div class="hero-typing-wrapper">
+        <span class="typing-prefix">Specializing in </span>
+        <span class="typing-text" id="typing-text"></span>
+        <span class="typing-cursor">|</span>
+      </div>
+
       <p class="hero-tagline">Transforming data into intelligent solutions</p>
+
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://docs.google.com/document/d/1Jm4x6WX_X5qPLwRYwwOUTwQjcqD24DULeOhncFv2oqU/edit?usp=sharing"
+          target="_blank" rel="noopener noreferrer" class="btn btn-resume"><i class="fas fa-file-alt"></i> View
+          Resume</a>
         <a href="#contact" class="btn btn-secondary">Get In Touch</a>
       </div>
       <div class="scroll-indicator">
@@ -64,10 +110,10 @@
     </div>
   </section>
 
-  <!-- About & Experience Section -->
+  <!-- About Section -->
   <section id="about" class="about" aria-labelledby="about-heading">
     <div class="container">
-      <h2 id="about-heading" class="section-title">About & Experience</h2>
+      <h2 id="about-heading" class="section-title">About &amp; Journey</h2>
 
       <!-- Git Timeline Visualization -->
       <div id="git-timeline" class="timeline-container"></div>
@@ -76,23 +122,149 @@
       <div class="about-content">
         <div class="about-text">
           <h3>Who I Am</h3>
-          <p>I'm a passionate Machine Learning Engineer with a focus on developing intelligent systems that solve real-world problems. Currently working at Iron Mountain, I specialize in applying cutting-edge ML techniques to enterprise-scale challenges.</p>
-          <p>My journey in tech started with a curiosity about how computers learn and has evolved into a career dedicated to pushing the boundaries of artificial intelligence. I thrive on transforming complex data into actionable insights and building models that make a tangible impact.</p>
+          <p>I am an <strong>Associate AI Engineer at Iron Mountain</strong> specializing in <strong>Generative AI,
+              Autonomous AI Agents, and Scalable ML Engineering</strong>. As a Forward Deployed Engineer (FDE), I
+            partner directly with enterprise stakeholders and engineering teams to design, evaluate, and deploy
+            high-impact AI systems for clients including <strong>McLaren F1, Wells Fargo, the US Government, and the
+              Saudi Arabian Government</strong>.</p>
+          <p>My work combines deep expertise in modern LLM architectures with high-performance systems programming in
+            <strong>Python, Rust, and GoLang</strong>. I lead initiatives spanning hybrid AI search engines (embeddings,
+            SQL, Knowledge Graphs, and GraphRAG), autonomous multi-agent pipelines with persistent memory using AutoGen
+            and LangChain, and fine-tuning 7B–30B parameter models using quantization-aware techniques.
+          </p>
+          <p>By architecting cross-language microservices in Rust and optimizing CPU inference via ONNX and DASK load
+            balancing, I have delivered <strong>~55% resource consumption reductions</strong> while supporting
+            concurrency upwards of 3,000 users. I hold a B.Tech in Computer Science from Dayananda Sagar University,
+            Bangalore.</p>
         </div>
         <div class="about-stats">
           <div class="stat-card">
-            <span class="stat-number">2+</span>
+            <span class="stat-number" id="experience-years">2.5+</span>
             <span class="stat-label">Years Experience</span>
           </div>
           <div class="stat-card">
-            <span class="stat-number">10+</span>
-            <span class="stat-label">Projects</span>
+            <span class="stat-number">3000+</span>
+            <span class="stat-label">Concurrent Users Handled</span>
           </div>
           <div class="stat-card">
             <span class="stat-number">5+</span>
-            <span class="stat-label">Technologies</span>
+            <span class="stat-label">Production Projects</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">55%</span>
+            <span class="stat-label">Resource Optimization</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dedicated Work Experience Section -->
+  <section id="experience" class="experience" aria-labelledby="experience-heading">
+    <div class="container">
+      <h2 id="experience-heading" class="section-title">Work Experience</h2>
+
+      <div class="experience-list">
+        <!-- Role 1: Iron Mountain -->
+        <article class="experience-card">
+          <div class="experience-header">
+            <div class="experience-meta">
+              <div class="experience-role-badge">
+                <i class="fas fa-brain"></i>
+                <h3 class="experience-role">Associate AI Engineer</h3>
+              </div>
+              <div class="experience-company-wrap">
+                <span class="experience-company"><i class="fas fa-building"></i> Iron Mountain</span>
+                <span class="experience-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
+              </div>
+            </div>
+            <div class="experience-period">Jan 2024 &ndash; Present</div>
+          </div>
+
+          <p class="experience-summary">
+            Delivering scalable AI search, predictive analytics, and autonomous agent systems for high-value enterprise
+            clients including <strong>McLaren F1, Wells Fargo, the US Government, and the Saudi Arabian
+              Government</strong>.
+          </p>
+
+          <ul class="experience-bullets">
+            <li><strong>Forward Deployed Engineer (FDE):</strong> Engage directly with global enterprise clients to
+              align technical capabilities with complex business requirements, accelerating delivery cycles from
+              conception to production.</li>
+            <li><strong>Enterprise AI Search &amp; GraphRAG:</strong> Built hybrid search platforms retrieving
+              semantically matched content across embeddings, SQL, Knowledge Graphs, and unstructured data with
+              continuous feedback re-ranking.</li>
+            <li><strong>Autonomous AI Agents &amp; HITL:</strong> Architected multi-agent orchestration systems using
+              AutoGen and LangChain featuring persistent agentic memory and Human-in-the-Loop validation for
+              mission-critical enterprise workflows.</li>
+            <li><strong>Rust &amp; Go Performance Engineering:</strong> Architected cross-language utility frameworks in
+              Rust/Golang, reducing system resource footprint by ~55% and boosting inter-service communication speeds.
+            </li>
+            <li><strong>LLM Fine-Tuning &amp; Quantization:</strong> Fine-tuned 7B–30B parameter LLMs (Mistral, Llama,
+              Gemma, Qwen) using quantization-aware training and pioneered early adoption of GraphRAG, Knowledge Graphs,
+              and GRPO.</li>
+            <li><strong>High-Scale CPU Optimization:</strong> Optimized embedding inference on CPU with custom chunking
+              and ONNX quantization; implemented DASK distributed load balancing to seamlessly handle 3,000+ concurrent
+              users.</li>
+          </ul>
+
+          <div class="experience-tech-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Rust</span>
+            <span class="tag">Golang</span>
+            <span class="tag">AutoGen</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">GraphRAG</span>
+            <span class="tag">PGVector</span>
+            <span class="tag">ChromaDB</span>
+            <span class="tag">Neo4J</span>
+            <span class="tag">ONNX</span>
+            <span class="tag">DASK</span>
+            <span class="tag">FastAPI</span>
+          </div>
+        </article>
+
+        <!-- Role 2: Snive -->
+        <article class="experience-card">
+          <div class="experience-header">
+            <div class="experience-meta">
+              <div class="experience-role-badge">
+                <i class="fas fa-rocket"></i>
+                <h3 class="experience-role">Machine Learning Engineer</h3>
+              </div>
+              <div class="experience-company-wrap">
+                <span class="experience-company"><i class="fas fa-building"></i> Snive</span>
+                <span class="experience-location"><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
+              </div>
+            </div>
+            <div class="experience-period">May 2023 &ndash; Dec 2023</div>
+          </div>
+
+          <p class="experience-summary">
+            Founding ML engineer responsible for developing, optimizing, and deploying generative Text-to-Image and
+            Text-to-Text machine learning models.
+          </p>
+
+          <ul class="experience-bullets">
+            <li><strong>Generative Model R&amp;D:</strong> Led research initiatives to assess and implement SOTA machine
+              learning papers and open models, translating academic architectures into performant backend services.</li>
+            <li><strong>Latency Reduction:</strong> Achieved an approximate 40% reduction in inference latency through
+              aggressive quantization, model pruning, and execution graph compilation.</li>
+            <li><strong>Edge &amp; Non-Python Deployments:</strong> Compiled and exported ML models to ONNX to enable
+              rapid client-side and edge inference across non-Python environments including browsers and embedded
+              hardware.</li>
+          </ul>
+
+          <div class="experience-tech-tags">
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Text-to-Image</span>
+            <span class="tag">ONNX</span>
+            <span class="tag">Quantization</span>
+            <span class="tag">Model Pruning</span>
+            <span class="tag">FastAPI</span>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -100,15 +272,15 @@
   <!-- Skills & Technologies Section -->
   <section id="skills" class="skills" aria-labelledby="skills-heading">
     <div class="container">
-      <h2 id="skills-heading" class="section-title">Skills & Technologies</h2>
+      <h2 id="skills-heading" class="section-title">Skills &amp; Technologies</h2>
 
       <div class="skills-grid">
-        <!-- Machine Learning -->
+        <!-- Machine Learning & Deep Learning -->
         <div class="skill-category">
           <div class="category-icon">
             <i class="fas fa-brain"></i>
           </div>
-          <h3>Machine Learning</h3>
+          <h3>Machine Learning &amp; LLMs</h3>
           <div class="skill-items">
             <div class="skill-item">
               <div class="skill-header">
@@ -116,31 +288,31 @@
                 <span>Python</span>
               </div>
               <div class="skill-bar">
-                <div class="skill-progress" data-progress="90"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="fas fa-project-diagram"></i>
-                <span>ONNX</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="80"></div>
+                <div class="skill-progress" data-progress="95"></div>
               </div>
             </div>
             <div class="skill-item">
               <div class="skill-header">
                 <i class="fas fa-fire"></i>
-                <span>PyTorch</span>
+                <span>PyTorch &amp; TensorFlow</span>
               </div>
               <div class="skill-bar">
-                <div class="skill-progress" data-progress="75"></div>
+                <div class="skill-progress" data-progress="88"></div>
               </div>
             </div>
             <div class="skill-item">
               <div class="skill-header">
-                <i class="fas fa-utility fa-semibold fa-scissors"></i>
-                <span>Quantization</span>
+                <i class="fas fa-compress-arrows-alt"></i>
+                <span>LLM Quantization &amp; Fine-Tuning</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-microchip"></i>
+                <span>ONNX, vLLM &amp; Unsloth</span>
               </div>
               <div class="skill-bar">
                 <div class="skill-progress" data-progress="85"></div>
@@ -149,63 +321,118 @@
           </div>
         </div>
 
-        <!-- Data Science -->
+        <!-- Generative AI & Agents -->
         <div class="skill-category">
           <div class="category-icon">
-            <i class="fas fa-database"></i>
+            <i class="fas fa-robot"></i>
           </div>
-          <h3>Data Science</h3>
+          <h3>GenAI &amp; Agentic Systems</h3>
           <div class="skill-items">
             <div class="skill-item">
               <div class="skill-header">
-                <i class="fas fa-table"></i>
-                <span>Pandas</span>
+                <i class="fas fa-network-wired"></i>
+                <span>AutoGen &amp; LangChain</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="92"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-project-diagram"></i>
+                <span>GraphRAG &amp; Vector Search</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-user-check"></i>
+                <span>HITL &amp; Agentic Memory</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="88"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-shield-alt"></i>
+                <span>Prompt Guardrails &amp; Agent Evaluations</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="88"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages & High-Performance Systems -->
+        <div class="skill-category">
+          <div class="category-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Languages &amp; Core Systems</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-gear"></i>
+                <span>Rust &amp; GoLang</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="82"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-bolt"></i>
+                <span>FastAPI &amp; REST APIs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-laptop-code"></i>
+                <span>C++ &amp; Java</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-progress="78"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="fas fa-boxes-stacked"></i>
+                <span>Build Systems: Python Setuptools &amp; Java Maven</span>
               </div>
               <div class="skill-bar">
                 <div class="skill-progress" data-progress="85"></div>
               </div>
             </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="fas fa-square-root-alt"></i>
-                <span>NumPy</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="80"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="fas fa-chart-bar"></i>
-                <span>Data Visualization</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="75"></div>
-              </div>
-            </div>
+          </div>
+        </div>
+
+        <!-- Cloud, Data & Infrastructure -->
+        <div class="skill-category">
+          <div class="category-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>Cloud, Data &amp; Infra</h3>
+          <div class="skill-items">
             <div class="skill-item">
               <div class="skill-header">
                 <i class="fas fa-database"></i>
-                <span>SQL</span>
+                <span>PostgresDB, PGVector &amp; Neo4j</span>
               </div>
               <div class="skill-bar">
-                <div class="skill-progress" data-progress="70"></div>
+                <div class="skill-progress" data-progress="88"></div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Tools & Platforms -->
-        <div class="skill-category">
-          <div class="category-icon">
-            <i class="fas fa-tools"></i>
-          </div>
-          <h3>Tools & Platforms</h3>
-          <div class="skill-items">
             <div class="skill-item">
               <div class="skill-header">
-                <i class="fab fa-git-alt"></i>
-                <span>Git</span>
+                <i class="fas fa-search"></i>
+                <span>ElasticSearch &amp; MongoDB</span>
               </div>
               <div class="skill-bar">
                 <div class="skill-progress" data-progress="85"></div>
@@ -214,28 +441,19 @@
             <div class="skill-item">
               <div class="skill-header">
                 <i class="fab fa-docker"></i>
-                <span>Docker</span>
+                <span>Docker, Podman &amp; Linux</span>
               </div>
               <div class="skill-bar">
-                <div class="skill-progress" data-progress="70"></div>
+                <div class="skill-progress" data-progress="84"></div>
               </div>
             </div>
             <div class="skill-item">
               <div class="skill-header">
                 <i class="fab fa-aws"></i>
-                <span>AWS</span>
+                <span>AWS, GCP &amp; Azure</span>
               </div>
               <div class="skill-bar">
-                <div class="skill-progress" data-progress="65"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="fab fa-linux"></i>
-                <span>Linux</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-progress="75"></div>
+                <div class="skill-progress" data-progress="80"></div>
               </div>
             </div>
           </div>
@@ -247,33 +465,94 @@
   <!-- Projects Showcase Section -->
   <section id="projects" class="projects" aria-labelledby="projects-heading">
     <div class="container">
-      <h2 id="projects-heading" class="section-title">Projects</h2>
+      <h2 id="projects-heading" class="section-title">Featured Projects</h2>
 
       <div class="projects-grid">
-        <!-- Project Card 1 -->
+        <!-- Project 1: AI Agents Usage Guide -->
         <article class="project-card">
           <div class="project-image">
             <div class="project-placeholder">
-              <i class="fas fa-brain"></i>
+              <i class="fas fa-robot"></i>
             </div>
             <div class="project-overlay">
               <div class="project-links">
-                <a href="https://github.com/adityasarwade/ai-agents-basic-usage-guide" class="project-link" aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
+                <a href="https://github.com/adityasarwade/ai-agents-basic-usage-guide" class="project-link"
+                  aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>
+                  Code</a>
               </div>
             </div>
           </div>
           <div class="project-content">
-            <h3>AI Agents Basic Usage Guide</h3>
-            <p>Showcasing usage of popular AI agentic frameworks. A comprehensive guide demonstrating practical implementations of AI agents and their applications in real-world scenarios.</p>
+            <h3>AI Agents Usage Guide</h3>
+            <p>Practical implementation guide and architecture patterns for popular AI agentic frameworks (AutoGen,
+              LangChain, CrewAI). Showcases persistent agent memory, multi-agent collaboration, and tool routing.</p>
             <div class="project-tags">
               <span class="tag">Python</span>
+              <span class="tag">AutoGen</span>
+              <span class="tag">LangChain</span>
               <span class="tag">AI Agents</span>
-              <span class="tag">LLM</span>
             </div>
           </div>
         </article>
 
-        <!-- Project Card 2 -->
+        <!-- Project 2: Crash Me If You Can -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">
+              <i class="fas fa-car"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/AdityaSarwade/crash-me-if-you-can" class="project-link"
+                  aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>
+                  Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Crash Me If You Can</h3>
+            <p>Interactive self-driving car simulation powered by a single-layer shallow neural network. Features
+              dynamic raycasting sensors, custom track generation, and real-world road map import from OpenStreetMap.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Neural Networks</span>
+              <span class="tag">Autonomous Vehicles</span>
+              <span class="tag">OpenStreetMap</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Rust Real-Time Chat -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/AdityaSarwade/rust-chat" class="project-link" aria-label="View backend code"
+                  target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Server</a>
+                <a href="https://github.com/AdityaSarwade/rust-chat-frontend" class="project-link"
+                  aria-label="View frontend code" target="_blank" rel="noopener noreferrer"><i
+                    class="fab fa-github"></i> Client</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Rust Real-Time Chat Engine &amp; Web Client</h3>
+            <p>High-concurrency chat infrastructure featuring an asynchronous WebSocket backend written in Rust for
+              zero-cost memory safety, paired with an interactive, responsive web frontend.</p>
+            <div class="project-tags">
+              <span class="tag">Rust</span>
+              <span class="tag">WebSockets</span>
+              <span class="tag">Concurrency</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Advanced Retrieval with Chroma -->
         <article class="project-card">
           <div class="project-image">
             <div class="project-placeholder">
@@ -281,22 +560,53 @@
             </div>
             <div class="project-overlay">
               <div class="project-links">
-                <a href="https://github.com/adityasarwade/Advanced-Retrieval-for-AI-with-Chroma" class="project-link" aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
+                <a href="https://github.com/adityasarwade/Advanced-Retrieval-for-AI-with-Chroma" class="project-link"
+                  aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>
+                  Code</a>
               </div>
             </div>
           </div>
           <div class="project-content">
             <h3>Advanced Retrieval for AI with Chroma</h3>
-            <p>Implementation of advanced retrieval techniques for AI applications using Chroma vector database. Focuses on efficient information retrieval and RAG for LLM applications.</p>
+            <p>Implementation of enterprise-grade retrieval techniques (RAG) using Chroma vector database. Implements
+              semantic re-ranking, query expansion, and hybrid context optimization for production LLMs.</p>
             <div class="project-tags">
-              <span class="tag">Jupyter Notebook</span>
-              <span class="tag">Chroma</span>
+              <span class="tag">ChromaDB</span>
               <span class="tag">RAG</span>
+              <span class="tag">Vector Search</span>
+              <span class="tag">Python</span>
             </div>
           </div>
         </article>
 
-        <!-- Project Card 3 -->
+        <!-- Project 5: Personal Blog (MERN) -->
+        <article class="project-card">
+          <div class="project-image">
+            <div class="project-placeholder">
+              <i class="fas fa-newspaper"></i>
+            </div>
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/AdityaSarwade/personal-blog-MERN" class="project-link"
+                  aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>
+                  Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Full-Stack Personal Blog (MERN)</h3>
+            <p>A complete full-stack publishing platform built with MongoDB, Express, React, and Node.js. Includes rich
+              markdown rendering, REST API backend, user authentication, and responsive reading UI.</p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Express</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6: Olympic Games Analytics in Apache Spark -->
         <article class="project-card">
           <div class="project-image">
             <div class="project-placeholder">
@@ -304,86 +614,21 @@
             </div>
             <div class="project-overlay">
               <div class="project-links">
-                <a href="https://github.com/adityasarwade/Olympic-Games-Analytics-in-Apache-Spark" class="project-link" aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
+                <a href="https://github.com/adityasarwade/Olympic-Games-Analytics-in-Apache-Spark" class="project-link"
+                  aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>
+                  Code</a>
               </div>
             </div>
           </div>
           <div class="project-content">
             <h3>Olympic Games Analytics in Apache Spark</h3>
-            <p>Notebook to extract insights from recorded Olympic games history. Demonstrates big data processing and analytics using Apache Spark for large-scale data analysis.</p>
+            <p>Distributed big data analytics pipeline and interactive notebook. Processes historical Olympic records
+              with PySpark to extract athlete performance patterns and multinational medal trends.</p>
             <div class="project-tags">
               <span class="tag">Apache Spark</span>
-              <span class="tag">Data Analytics</span>
+              <span class="tag">Big Data</span>
+              <span class="tag">PySpark</span>
               <span class="tag">Python</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project Card 4 -->
-        <article class="project-card">
-          <div class="project-image">
-            <div class="project-placeholder">
-              <i class="fas fa-file-invoice"></i>
-            </div>
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://github.com/adityasarwade/Billing-System-with-Java-and-mongoDB" class="project-link" aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>Billing System with Java and MongoDB</h3>
-            <p>Desktop billing application built using Java Swing Toolkit for GUI and MongoDB for database. Features comprehensive invoicing and inventory management capabilities.</p>
-            <div class="project-tags">
-              <span class="tag">Java</span>
-              <span class="tag">MongoDB</span>
-              <span class="tag">Swing</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project Card 5 -->
-        <article class="project-card">
-          <div class="project-image">
-            <div class="project-placeholder">
-              <i class="fas fa-cloud-sun-rain"></i>
-            </div>
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://github.com/adityasarwade/Weather-Map-App" class="project-link" aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>Weather Map App</h3>
-            <p>Interactive weather mapping application built with JavaScript. Provides real-time weather data visualization with an intuitive user interface and location-based forecasts.</p>
-            <div class="project-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">Web Dev</span>
-              <span class="tag">API</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project Card 6 -->
-        <article class="project-card">
-          <div class="project-image">
-            <div class="project-placeholder">
-              <i class="fab fa-react"></i>
-            </div>
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://github.com/adityasarwade/Amazon-Product-Page-in-React" class="project-link" aria-label="View code" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>Amazon Product Page in React</h3>
-            <p>Create a dynamic and efficient Product Preview Page using React. Demonstrates modern front-end development practices with component-based architecture and responsive design.</p>
-            <div class="project-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">React</span>
-              <span class="tag">UI/UX</span>
             </div>
           </div>
         </article>
@@ -398,30 +643,48 @@
 
       <div class="contact-content">
         <div class="contact-info">
-          <p class="contact-intro">I'm always open to discussing new opportunities, collaborations, or just connecting with fellow tech enthusiasts. Feel free to reach out!</p>
+          <p class="contact-intro">I'm always open to discussing new opportunities, collaborations on Generative AI and
+            agentic systems, or technical exchanges. Feel free to reach out directly!</p>
 
           <div class="contact-methods">
-            <div class="contact-item">
+            <!-- Email -->
+            <a href="mailto:adityasarwade7@gmail.com" class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>adityasarwade7@gmail.com</p>
+              </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/aditya-sarwade" target="_blank" rel="noopener noreferrer"
+              class="contact-item">
               <i class="fab fa-linkedin"></i>
               <div>
                 <h4>LinkedIn</h4>
-                <a href="https://www.linkedin.com/in/aditya-sarwade" target="_blank" rel="noopener noreferrer">linkedin.com/in/aditya-sarwade</a>
+                <p>linkedin.com/in/aditya-sarwade</p>
               </div>
-            </div>
-            <div class="contact-item">
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://www.github.com/adityasarwade" target="_blank" rel="noopener noreferrer"
+              class="contact-item">
               <i class="fab fa-github"></i>
               <div>
                 <h4>GitHub</h4>
-                <a href="https://www.github.com/adityasarwade" target="_blank" rel="noopener noreferrer">github.com/adityasarwade</a>
+                <p>github.com/adityasarwade</p>
               </div>
-            </div>
-            <div class="contact-item">
+            </a>
+
+            <!-- Location -->
+            <a href="https://maps.google.com/?q=Bangalore,+India" target="_blank" rel="noopener noreferrer"
+              class="contact-item">
               <i class="fas fa-map-marker-alt"></i>
               <div>
                 <h4>Location</h4>
-                <p>Available for remote opportunities</p>
+                <p>Bangalore, India</p>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -433,13 +696,17 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <p>&copy; 2025 Aditya Sarwade. Built with Three.js & vanilla JavaScript.</p>
+        <p>&copy; <span id="current-year">2026</span> Aditya Sarwade</p>
         <div class="footer-social">
-          <a href="https://www.linkedin.com/in/aditya-sarwade" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/aditya-sarwade" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
           </a>
           <a href="https://www.github.com/adityasarwade" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:adityasarwade7@gmail.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
           </a>
         </div>
       </div>
@@ -459,4 +726,5 @@
   <script src="js/scroll-animations.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff" />
+      <stop offset="100%" stop-color="#7b2cbf" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0a0e27" />
+  <polygon points="32,8 54,20 54,44 32,56 10,44 10,20" fill="none" stroke="url(#primary-grad)" stroke-width="2.5" opacity="0.4" />
+  <polygon points="32,12 50,22 50,42 32,52 14,42 14,22" fill="#131a35" stroke="url(#primary-grad)" stroke-width="2" />
+  <text x="32" y="39" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-weight="800" font-size="20" fill="url(#primary-grad)" filter="url(#glow)">AS</text>
+  <circle cx="32" cy="12" r="3" fill="#00d4ff" filter="url(#glow)" />
+  <circle cx="50" cy="42" r="2" fill="#7b2cbf" />
+  <circle cx="14" cy="42" r="2" fill="#00d4ff" />
+</svg>

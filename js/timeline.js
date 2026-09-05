@@ -18,68 +18,48 @@ class GitTimeline {
   defineMilestones() {
     return [
       {
-        id: 'start',
+        id: 'schooling',
         branch: 'main',
-        year: '2015',
-        title: 'High School',
-        description: 'Started programming journey',
+        year: '2008-2018',
+        title: 'Schooling',
+        description: "St. Mira's Heritage Academy, Bangalore",
         color: '#4CAF50',
-        icon: '🎓'
+        icon: '🏫'
       },
       {
-        id: 'college',
+        id: 'junior-college',
         branch: 'main',
-        year: '2019',
-        title: 'University',
-        description: 'Computer Science Degree',
+        year: '2018-2020',
+        title: 'Pre-University (Junior College)',
+        description: 'Jain College, Jayanagar',
+        color: '#00bcd4',
+        icon: '📚'
+      },
+      {
+        id: 'university',
+        branch: 'main',
+        year: '2020-2024',
+        title: 'Graduated, B.Tech in CSE',
+        description: 'Dayananda Sagar University',
         color: '#2196F3',
         icon: '🎓',
-        createBranch: 'projects'
-      },
-      {
-        id: 'project1',
-        branch: 'projects',
-        year: '2020',
-        title: 'First ML Project',
-        description: 'Built classification model',
-        color: '#FF9800',
-        icon: '💡'
-      },
-      {
-        id: 'internship',
-        branch: 'experience',
-        year: '2021',
-        title: 'ML Internship',
-        description: 'First industry experience',
-        color: '#FF9800',
-        icon: '💼',
         createBranch: 'experience'
       },
       {
-        id: 'project2',
-        branch: 'projects',
-        year: '2022',
-        title: 'Advanced Projects',
-        description: 'Deep learning & NLP',
+        id: 'snive',
+        branch: 'experience',
+        year: '2023',
+        title: 'Founding ML Engineer',
+        description: 'Snive (Text-to-Image & Generative ML)',
         color: '#FF9800',
         icon: '🚀'
       },
       {
-        id: 'graduation',
+        id: 'iron-mountain',
         branch: 'main',
-        year: '2023',
-        title: 'Graduated',
-        description: 'BS Computer Science',
-        color: '#2196F3',
-        icon: '🎓',
-        mergeBranch: 'projects'
-      },
-      {
-        id: 'current',
-        branch: 'main',
-        year: '2023-Present',
-        title: 'Associate ML Engineer',
-        description: 'Iron Mountain',
+        year: '2024-Present',
+        title: 'Associate AI Engineer',
+        description: 'Iron Mountain (Enterprise AI, Agents & Search)',
         color: '#9C27B0',
         icon: '⭐',
         isCurrent: true,
@@ -99,7 +79,7 @@ class GitTimeline {
 
   createSVG() {
     const width = 900;
-    const height = 700;
+    const height = 620;
 
     this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     this.svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
@@ -159,16 +139,15 @@ class GitTimeline {
   }
 
   drawTimeline() {
-    const startX = 100;
-    const startY = 50;
-    const verticalSpacing = 90;
-    const branchOffset = 150;
+    const startX = 180;
+    const startY = 70;
+    const verticalSpacing = 110;
+    const branchOffset = 180;
 
     // Track branch positions
     const branches = {
       main: { x: startX, y: startY },
-      projects: { x: startX + branchOffset, y: 0 },
-      experience: { x: startX - branchOffset, y: 0 }
+      experience: { x: startX + branchOffset, y: 0 }
     };
 
     let currentY = startY;
@@ -192,7 +171,6 @@ class GitTimeline {
     this.svg.appendChild(mainLine);
 
     // Draw commits and branches
-    let projectY = 0;
     let experienceY = 0;
 
     this.milestones.forEach((milestone, index) => {
@@ -203,10 +181,6 @@ class GitTimeline {
         this.drawCommit(startX, baseY, milestone);
 
         // Handle branch creation
-        if (milestone.createBranch === 'projects') {
-          projectY = baseY + verticalSpacing;
-          branches.projects.y = projectY;
-        }
         if (milestone.createBranch === 'experience') {
           experienceY = baseY + verticalSpacing;
           branches.experience.y = experienceY;
@@ -214,12 +188,8 @@ class GitTimeline {
 
         // Handle merge
         if (milestone.mergeBranch) {
-          const mergeFromX = milestone.mergeBranch === 'projects'
-            ? branches.projects.x
-            : branches.experience.x;
-          const mergeFromY = milestone.mergeBranch === 'projects'
-            ? projectY
-            : experienceY;
+          const mergeFromX = branches.experience.x;
+          const mergeFromY = experienceY;
 
           const mergePath = this.createCurvePath(
             mergeFromX, mergeFromY,
@@ -230,38 +200,18 @@ class GitTimeline {
           this.svg.appendChild(mergePath);
         }
 
-      } else if (milestone.branch === 'projects') {
-        // Projects branch
-        const branchX = branches.projects.x;
-
-        // Branch off line
-        if (projectY === baseY) {
-          const branchPath = this.createCurvePath(
-            startX, baseY - verticalSpacing,
-            branchX, baseY,
-            milestone.color
-          );
-          branchPath.classList.add('timeline-branch');
-          this.svg.appendChild(branchPath);
-        }
-
-        this.drawCommit(branchX, baseY, milestone);
-        projectY = baseY;
-
       } else if (milestone.branch === 'experience') {
         // Experience branch
         const branchX = branches.experience.x;
 
         // Branch off line
-        if (experienceY === baseY) {
-          const branchPath = this.createCurvePath(
-            startX, baseY - verticalSpacing,
-            branchX, baseY,
-            milestone.color
-          );
-          branchPath.classList.add('timeline-branch');
-          this.svg.appendChild(branchPath);
-        }
+        const branchPath = this.createCurvePath(
+          startX, baseY - verticalSpacing,
+          branchX, baseY,
+          milestone.color
+        );
+        branchPath.classList.add('timeline-branch');
+        this.svg.appendChild(branchPath);
 
         this.drawCommit(branchX, baseY, milestone);
         experienceY = baseY;
@@ -302,7 +252,7 @@ class GitTimeline {
     path.setAttribute('stroke', color);
     path.setAttribute('stroke-width', '2');
     path.setAttribute('fill', 'none');
-    path.setAttribute('opacity', '0.6');
+    path.setAttribute('opacity', '0.7');
 
     return path;
   }
@@ -323,24 +273,25 @@ class GitTimeline {
     circle.setAttribute('fill', milestone.color);
     circle.setAttribute('filter', 'url(#glow)');
 
-    // Year label
+    // Year label (anchored to the right so it aligns before the commit)
     const yearText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    yearText.setAttribute('x', x - 70);
+    yearText.setAttribute('x', x - 25);
     yearText.setAttribute('y', y + 5);
+    yearText.setAttribute('text-anchor', 'end');
     yearText.setAttribute('class', 'timeline-year');
     yearText.textContent = milestone.year;
 
     // Title
     const titleText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    titleText.setAttribute('x', x + 20);
-    titleText.setAttribute('y', y - 5);
+    titleText.setAttribute('x', x + 25);
+    titleText.setAttribute('y', y - 6);
     titleText.setAttribute('class', 'timeline-title');
     titleText.textContent = `${milestone.icon} ${milestone.title}`;
 
     // Description
     const descText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    descText.setAttribute('x', x + 20);
-    descText.setAttribute('y', y + 15);
+    descText.setAttribute('x', x + 25);
+    descText.setAttribute('y', y + 16);
     descText.setAttribute('class', 'timeline-description');
     descText.textContent = milestone.description;
 
@@ -358,17 +309,12 @@ class GitTimeline {
     commits.forEach(commit => {
       commit.style.cursor = 'pointer';
 
-      commit.addEventListener('mouseenter', (e) => {
+      commit.addEventListener('mouseenter', () => {
         commit.style.opacity = '1';
       });
 
       commit.addEventListener('mouseleave', () => {
         commit.style.opacity = '';
-      });
-
-      commit.addEventListener('click', () => {
-        // Could add modal or expanded view here
-        console.log('Clicked:', commit.getAttribute('data-id'));
       });
     });
   }
